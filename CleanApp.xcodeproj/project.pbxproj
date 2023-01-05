@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE59F1EF2967051700206B86 /* CleanApp.h in Headers */ = {isa = PBXBuildFile; fileRef = CE59F1EE2967051700206B86 /* CleanApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE59F20229670ACB00206B86 /* AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE59F20129670ACB00206B86 /* AddAccount.swift */; };
+		CE59F20429670C1200206B86 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE59F20329670C1200206B86 /* AccountModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE59F1EB2967051700206B86 /* CleanApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE59F1EE2967051700206B86 /* CleanApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleanApp.h; sourceTree = "<group>"; };
+		CE59F1FA2967085100206B86 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE59F20129670ACB00206B86 /* AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccount.swift; sourceTree = "<group>"; };
+		CE59F20329670C1200206B86 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CE59F1E82967051700206B86 /* Frameworks */ = {
+		CE59F1F72967085100206B86 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,7 +31,7 @@
 		CE59F1E12967051700206B86 = {
 			isa = PBXGroup;
 			children = (
-				CE59F1ED2967051700206B86 /* CleanApp */,
+				CE59F1FB2967085100206B86 /* Domain */,
 				CE59F1EC2967051700206B86 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -37,49 +39,49 @@
 		CE59F1EC2967051700206B86 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE59F1EB2967051700206B86 /* CleanApp.framework */,
+				CE59F1FA2967085100206B86 /* Domain.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE59F1ED2967051700206B86 /* CleanApp */ = {
+		CE59F1FB2967085100206B86 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				CE59F1EE2967051700206B86 /* CleanApp.h */,
+				CE59F20129670ACB00206B86 /* AddAccount.swift */,
+				CE59F20329670C1200206B86 /* AccountModel.swift */,
 			);
-			path = CleanApp;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		CE59F1E62967051700206B86 /* Headers */ = {
+		CE59F1F52967085100206B86 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE59F1EF2967051700206B86 /* CleanApp.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		CE59F1EA2967051700206B86 /* CleanApp */ = {
+		CE59F1F92967085100206B86 /* Domain */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE59F1F22967051700206B86 /* Build configuration list for PBXNativeTarget "CleanApp" */;
+			buildConfigurationList = CE59F1FE2967085100206B86 /* Build configuration list for PBXNativeTarget "Domain" */;
 			buildPhases = (
-				CE59F1E62967051700206B86 /* Headers */,
-				CE59F1E72967051700206B86 /* Sources */,
-				CE59F1E82967051700206B86 /* Frameworks */,
-				CE59F1E92967051700206B86 /* Resources */,
+				CE59F1F52967085100206B86 /* Headers */,
+				CE59F1F62967085100206B86 /* Sources */,
+				CE59F1F72967085100206B86 /* Frameworks */,
+				CE59F1F82967085100206B86 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CleanApp;
-			productName = CleanApp;
-			productReference = CE59F1EB2967051700206B86 /* CleanApp.framework */;
+			name = Domain;
+			productName = Domain;
+			productReference = CE59F1FA2967085100206B86 /* Domain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -91,8 +93,9 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					CE59F1EA2967051700206B86 = {
+					CE59F1F92967085100206B86 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -109,13 +112,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE59F1EA2967051700206B86 /* CleanApp */,
+				CE59F1F92967085100206B86 /* Domain */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CE59F1E92967051700206B86 /* Resources */ = {
+		CE59F1F82967085100206B86 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,10 +128,12 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CE59F1E72967051700206B86 /* Sources */ = {
+		CE59F1F62967085100206B86 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE59F20229670ACB00206B86 /* AddAccount.swift in Sources */,
+				CE59F20429670C1200206B86 /* AccountModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,10 +260,12 @@
 			};
 			name = Release;
 		};
-		CE59F1F32967051700206B86 /* Debug */ = {
+		CE59F1FF2967085100206B86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -269,23 +276,27 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.clean.app.CleanApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clean.app.Domain;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		CE59F1F42967051700206B86 /* Release */ = {
+		CE59F2002967085100206B86 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -296,16 +307,17 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.clean.app.CleanApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clean.app.Domain;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -321,11 +333,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE59F1F22967051700206B86 /* Build configuration list for PBXNativeTarget "CleanApp" */ = {
+		CE59F1FE2967085100206B86 /* Build configuration list for PBXNativeTarget "Domain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE59F1F32967051700206B86 /* Debug */,
-				CE59F1F42967051700206B86 /* Release */,
+				CE59F1FF2967085100206B86 /* Debug */,
+				CE59F2002967085100206B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
