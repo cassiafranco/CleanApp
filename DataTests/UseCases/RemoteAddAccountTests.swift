@@ -16,11 +16,16 @@ class RemoteAddAccountTests: XCTestCase {
         sut.add(addAccountModel: addAccountModel) { _ in }
         XCTAssertEqual(httoClientSpy.data, addAccountModel.toData())
     }
-    func test_add_should_complete_with_error_ir_client_fails() {
+    func test_add_should_complete_with_error_ir_client_complete_error() {
         let (sut, httoClientSpy) = makeSut()
         let exp = expectation(description: "waiting")
-        sut.add(addAccountModel: self.makeAddAccountModel()) { error in
-            XCTAssertEqual(error, .unexpected)
+        sut.add(addAccountModel: self.makeAddAccountModel()) { result in
+            switch result {
+            case .failure(let error): XCTAssertEqual(error,.unexpected)
+            case.success: XCTFail("Expected error receive \(result) insted")
+                
+            }
+            
             exp.fulfill()
         }
         httoClientSpy.completeWithError(.noConnectivity)
@@ -40,15 +45,15 @@ extension RemoteAddAccountTests {
     class HttpClientSpy: HttpPostClient {
         var urls = [URL]()
         var data: Data?
-        var completion: ((HttpError) -> Void)?
+        var completion: ((Result<Data, HttpError>) -> Void)?
         
-        func post(to url: URL, with data: Data?, completion: @escaping (HttpError) -> Void) {
+        func post(to url: URL, with data: Data?, completion: @escaping (Result<Data, HttpError>) -> Void) {
             self.urls.append(url)
             self.data = data
             self.completion = completion
         }
         func completeWithError(_ error: HttpError) {
-            completion?(error)
+            completion?(.failure(error))
         }
     }
 }
