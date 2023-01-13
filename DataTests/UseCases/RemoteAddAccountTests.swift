@@ -22,10 +22,26 @@ class RemoteAddAccountTests: XCTestCase {
         sut.add(addAccountModel: self.makeAddAccountModel()) { result in
             switch result {
             case .failure(let error): XCTAssertEqual(error,.unexpected)
-            case.success: XCTFail("Expected error receive \(result) insted")
+            case.success: XCTFail("Expected error received \(result) insted")
                 
             }
             
+            exp.fulfill()
+        }
+        httoClientSpy.completeWithError(.noConnectivity)
+        wait(for: [exp], timeout: 1)
+    }
+    func test_add_should_complete_with_account_ir_client_complete_with_data() {
+        let (sut, httoClientSpy) = makeSut()
+        let exp = expectation(description: "waiting")
+        let expectedAccount = makeAccountModel()
+        sut.add(addAccountModel: self.makeAddAccountModel()) { result in
+            switch result {
+            case.failure: XCTFail("Expected sucess received \(result) insted")
+            case .success(let receivedAccount): XCTAssertEqual(receivedAccount, expectedAccount)
+                
+            }
+            httoClientSpy.completeWithData(expectedAccount.toData()!)
             exp.fulfill()
         }
         httoClientSpy.completeWithError(.noConnectivity)
@@ -40,8 +56,12 @@ extension RemoteAddAccountTests {
         return (sut, httpClientSpy)
     }
     func makeAddAccountModel() -> AddAccountModel {
-        return AddAccountModel(name: "any_name", email: "anu_email@mail.com", password: "any_password", passwordConfirmation: "any_password")
+        return AddAccountModel(name: "any_name", email: "any_email@mail.com", password: "any_password", passwordConfirmation: "any_password")
     }
+    func makeAccountModel() -> AccountModel {
+        return AccountModel(id: "any_id", name:  "any_name", email: "any_email@mail.com", password:  "any_password")
+    }
+    
     class HttpClientSpy: HttpPostClient {
         var urls = [URL]()
         var data: Data?
@@ -54,6 +74,9 @@ extension RemoteAddAccountTests {
         }
         func completeWithError(_ error: HttpError) {
             completion?(.failure(error))
+        }
+        func completeWithData(_ data: Data) {
+            completion?(.success(data))
         }
     }
 }
