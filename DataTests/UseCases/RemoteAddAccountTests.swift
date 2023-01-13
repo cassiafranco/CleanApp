@@ -4,19 +4,19 @@ import Data
 
 class RemoteAddAccountTests: XCTestCase {
     
-    func test_add_should_call_httpClient_whit_correct_url() {
+    func test_add_should_call_httpClient_whith_correct_url() {
         let url = URL(string: "http://any-url.com")!
         let (sut, httpClientSpy) =  makeSut(url: url)
         sut.add(addAccountModel: makeAddAccountModel()) { _ in }
         XCTAssertEqual(httpClientSpy.urls, [url])
     }
-    func test_add_should_call_httpClient_whit_correct_data() {
+    func test_add_should_call_httpClient_with_correct_data() {
         let (sut, httoClientSpy) = makeSut()
         let addAccountModel = self.makeAddAccountModel()
         sut.add(addAccountModel: addAccountModel) { _ in }
         XCTAssertEqual(httoClientSpy.data, addAccountModel.toData())
     }
-    func test_add_should_complete_with_error_ir_client_complete_error() {
+    func test_add_should_complete_with_error_if_client_complete_error() {
         let (sut, httoClientSpy) = makeSut()
         let exp = expectation(description: "waiting")
         sut.add(addAccountModel: self.makeAddAccountModel()) { result in
@@ -31,7 +31,7 @@ class RemoteAddAccountTests: XCTestCase {
         httoClientSpy.completeWithError(.noConnectivity)
         wait(for: [exp], timeout: 1)
     }
-    func test_add_should_complete_with_account_ir_client_complete_with_data() {
+    func test_add_should_complete_with_account_if_client_complete_with_valid_data() {
         let (sut, httoClientSpy) = makeSut()
         let exp = expectation(description: "waiting")
         let expectedAccount = makeAccountModel()
@@ -39,12 +39,25 @@ class RemoteAddAccountTests: XCTestCase {
             switch result {
             case.failure: XCTFail("Expected sucess received \(result) insted")
             case .success(let receivedAccount): XCTAssertEqual(receivedAccount, expectedAccount)
-                
             }
-            httoClientSpy.completeWithData(expectedAccount.toData()!)
             exp.fulfill()
         }
-        httoClientSpy.completeWithError(.noConnectivity)
+        httoClientSpy.completeWithData(expectedAccount.toData()!)
+        wait(for: [exp], timeout: 1)
+    }
+    func test_add_should_complete_with_error_if_client_complete_with_invalid_data() {
+        let (sut, httoClientSpy) = makeSut()
+        let exp = expectation(description: "waiting")
+        sut.add(addAccountModel: self.makeAddAccountModel()) { result in
+            switch result {
+            case .failure(let error): XCTAssertEqual(error,.unexpected)
+            case.success: XCTFail("Expected error received \(result) insted")
+                
+            }
+            
+            exp.fulfill()
+        }
+        httoClientSpy.completeWithData(Data("invalid_data".utf8))
         wait(for: [exp], timeout: 1)
     }
 }
