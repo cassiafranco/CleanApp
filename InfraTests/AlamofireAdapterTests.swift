@@ -22,14 +22,14 @@ class AlamofireAdapter {
 class AlamofireAdapterTests: XCTestCase {
     func teste_post_should_make_request_with_valid_url_and_method() {
         let url =  makeUrl()
-        testeRequestFor(url: url, data: makeValidData()) { request in
+        testRequestFor(url: url, data: makeValidData()) { request in
             XCTAssertEqual(url, request.url)
             XCTAssertEqual("POST", request.httpMethod)
             XCTAssertNotNil(request.httpBodyStream)
         }
     }
     func teste_post_should_make_request_with_no_data() {
-        testeRequestFor(data: nil) { request in
+        testRequestFor(data: nil) { request in
             XCTAssertNil(request.httpBodyStream)
         }
     }
@@ -56,15 +56,14 @@ extension AlamofireAdapterTests {
         checkMemoryLeak(for: sut, file: file, line: line)
         return sut
     }
-    func testeRequestFor(url: URL = makeUrl(), data: Data?, action: @escaping (URLRequest) -> Void) {
+    func testRequestFor(url: URL = makeUrl(), data: Data?, action: @escaping (URLRequest) -> Void) {
         let sut = makeSut()
-        sut.post(to:url, with: data) { _ in }
         let exp = expectation(description: "waiting")
-        URLProtocolStub.observeRequest { request in
-           action(request)
-            exp.fulfill()
-        }
+        sut.post(to:url, with: data) { _ in exp.fulfill() }
+        var request: URLRequest?
+        URLProtocolStub.observeRequest { request = $0 }
         wait(for: [exp], timeout: 1)
+        action(request!)
     }
 }
 class URLProtocolStub: URLProtocol {
