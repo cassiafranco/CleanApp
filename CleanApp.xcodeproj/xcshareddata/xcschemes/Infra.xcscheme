@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE59F21529670D0C00206B86"
-               BuildableName = "Data.framework"
-               BlueprintName = "Data"
+               BlueprintIdentifier = "CEBFFFB52972FBC600195187"
+               BuildableName = "Infra.framework"
+               BlueprintName = "Infra"
                ReferencedContainer = "container:CleanApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,9 +34,9 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE59F21C29670D0C00206B86"
-               BuildableName = "DataTests.xctest"
-               BlueprintName = "DataTests"
+               BlueprintIdentifier = "CEBFFFBC2972FBC700195187"
+               BuildableName = "InfraTests.xctest"
+               BlueprintName = "InfraTests"
                ReferencedContainer = "container:CleanApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -62,9 +62,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE59F21529670D0C00206B86"
-            BuildableName = "Data.framework"
-            BlueprintName = "Data"
+            BlueprintIdentifier = "CEBFFFB52972FBC600195187"
+            BuildableName = "Infra.framework"
+            BlueprintName = "Infra"
             ReferencedContainer = "container:CleanApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

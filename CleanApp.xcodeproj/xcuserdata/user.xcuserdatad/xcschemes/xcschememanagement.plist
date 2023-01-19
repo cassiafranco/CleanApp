@@ -22,7 +22,7 @@
 		<key>Domain.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<key>Infra.xcscheme_^#shared#^_</key>
 		<dict>
@@ -43,6 +43,16 @@
 			<true/>
 		</dict>
 		<key>CE59F21C29670D0C00206B86</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CEBFFFB52972FBC600195187</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CEBFFFBC2972FBC700195187</key>
 		<dict>
 			<key>primary</key>
 			<true/>
